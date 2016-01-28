@@ -1,0 +1,142 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-energized">
+        <h1 class="title">Troca do seu ingresso</h1>
+        <div class="buttons">
+        <button class="button button-clear" ng-click="cancel()">Cancel</button>
+        </div>
+    </ion-header-bar>
+<!--     <div class="tabs-striped tabs-top tabs-background-energized tabs-color-light">
+        <div class="tabs">
+          <a class="tab-item" href="#">
+            Meu ingresso
+          </a>
+          <a class="tab-item active" href="#">
+            Modalidade
+          </a>
+          <a class="tab-item" href="#">
+            Ingresso para trocar
+          </a>
+          <a class="tab-item" href="#">
+            resumo
+          </a> -->
+        <!-- </div>
+    </div>  -->
+    <!-- <ion-content class="padding has-subheader"> -->
+    <!-- <ion-content scroll="true"> -->
+ <!--            <tab-slide-box>
+            <div class="tsb-icons">
+              <div class="tsb-ic-wrp">
+              <ion-scroll direction="x" class="tsb-hscroll">
+              <a href="javascript:;" class="ion-home1">Meu ingresso</a>
+              <a href="javascript:;" class="ion-ios-game-controller-b1">Modalidade</a>
+              <a href="javascript:;" class="ion-email1">Ingreso para trocar</a>
+              <a href="javascript:;" class="ion-model-s1">Resumo</a>
+              </ion-scroll>
+            </div>
+            </div>
+              <ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
+                  <ion-slide>
+                      <h3>Home content</h3>
+                  </ion-slide>
+                  <ion-slide>
+                      <h3>Games content</h3>
+                  </ion-slide>
+                  <ion-slide>
+                      <h3>Mail content</h3>
+                  </ion-slide>
+                  <ion-slide>
+                      <h3>Car content</h3>
+                  </ion-slide>
+              </ion-slide-box>
+            </tab-slide-box> -->
+<!--       <div ng-if="mode='select_sport'" ng-repeat="(idSport, sport) in sports  ">
+            <ion-list class="">
+                <ion-item nav-clear menu-close class="item-icon-left "  ng-click="getTicketsToExchange(idSport);">
+                <img ng-src="{{sport.icon_directory}}" alt="icon">
+                    {{sport.name}}
+                </ion-item>
+            </ion-list>
+      </div>
+      <div ng-if="mode='select_ticket_to_exchange'" ng-repeat="(idTicket, ticket) in ticketsToExchange |filter: {exchangeable:'false'} ">
+          <ion-list class="">
+              <ion-item nav-clear menu-close class="item-icon-right "  ng-click="selectTicket(idTicket);">
+          <img ng-src="{{getSportIcon(ticket.id_sport)}}" alt="icon">
+                  {{idTickets}}
+                  <strong>{{ticket.description}}</strong>
+                  <h2>{{ticket.place}}</h2>
+                  <p>{{ticket.date}}  {{ticket.hour}}</p>
+              </ion-item>
+          </ion-list>
+      </div>
+
+    </ion-content> -->
+    <ion-pane>
+        <ion-tabs class="tabs-striped tabs-energized">
+
+              <ion-tab title="Meu ingresso" >
+                <ion-view view-title="Modalidade">
+                  <ion-content>
+                    <div class="im-wrapper">
+                      <h4>Se você quer mudar o ingresso que você vai trocar, escolhe um embaixo : </h4>
+                    </div>
+                    <div ng-repeat="(idTicket, ticket) in tickets  ">
+                      <ion-list class="">
+                      <label class="item item-radio">
+                          <input type="radio" name="group">
+                          <ion-item nav-clear menu-close class="item-icon-right ">
+                              <strong><img ng-src="{{ticket.icon_sport}}" alt="icon"> {{ticket.description}}</strong>
+                              <h2>{{ticket.place}}</h2>
+                              <p>{{ticket.date}}  {{ticket.hour}}</p>
+                              <i class="radio-icon ion-checkmark"></i>
+                          </ion-item>
+                          <div class="item item-divider no-padding">
+                          </div>
+                      </label>
+                      </ion-list>
+                    </div>
+                  </ion-content>
+                </ion-view>
+              </ion-tab>
+
+              <ion-tab title="Modalidade">
+                  <ion-view view-title="Modalidade">
+                    <ion-content>
+                      <div class="im-wrapper">
+                        <h4>Escolhe uma modalidade para ver os ingressos disponivel para trocar : </h4>
+                      </div>
+                      <div ng-repeat="(idSport, sport) in sports  ">
+                        <ion-list class="">
+                            <ion-item nav-clear menu-close class="item-icon-right " ng-click="getListTicketsToExchange(idSport);">
+
+                              <h3><strong class="balanced">
+                                <img ng-src="{{sport.icon_directory}}" alt="icon">
+                                {{sport.name}}
+                              </strong></h3>
+                              <!-- <i class="ion-chevron-right"></i> -->
+                            </ion-item>
+                        </ion-list>
+                      </div>
+                    </ion-content>
+                  </ion-view>
+              </ion-tab>
+
+              <ion-tab title="Ingresso de {{selectSportName}} para trocar"  disabled="true">
+                 <ion-view view-title="Ingresso de {{selectSportName}} para trocar">
+                  <ion-content>
+                    <div ng-repeat="(idTicket, ticketToEchange) in ticketsToExchange  ">
+                      <ion-list ng-if="ticketToEchange.exchangeable  && ticketToEchange.id_owner != uid"class="">
+                          <ion-item nav-clear menu-close class="item-icon-right" ng-click="resumeExchange(idTicket);">
+                              <strong>{{ticketToEchange.description}}</strong>
+                              <h2>{{ticketToEchange.place}}</h2>
+                              <p>{{ticketToEchange.date}}  {{ticketToEchange.hour}}</p>
+                          </ion-item>
+                          <div class="item item-divider no-padding">
+                          </div>
+                      </ion-list>
+                    </div>
+                  </ion-content>
+                </ion-view>
+              </ion-tab>
+        </ion-tabs>
+      </ion-pane>
+</ion-modal-view>

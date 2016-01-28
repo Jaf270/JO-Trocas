@@ -1,0 +1,29 @@
+<ion-view view-title="Meus ingressos">
+    <ion-content>
+
+        <!-- <div  ng-repeat="sport in sports ">
+            <div class="im-wrapper" ng-if="filterSport(sport)">
+                <h4 class="no-border no-padding-bottom balanced">{{sport.name}} <img ng-src="{{sport.icon_directory}}" alt="icon"></h4>
+
+            </div>
+        </div> -->
+            <div ng-repeat="(idTicket, ticket) in tickets  ">
+            <ion-list class="">
+                <ion-item nav-clear menu-close class="item-icon-right "  ng-click="viewTicket(idTicket);">
+                    <img ng-src="{{ticket.icon_sport}}" alt="icon"> <b class="balanced">{{ticket.sport_name}}</b>
+                    <strong>{{ticket.description}}</strong>
+                    <h2>{{ticket.place}}</h2>
+                    <p>{{ticket.date}}  {{ticket.hour}}</p>
+                </ion-item>
+            </ion-list>
+            </div>
+
+        <div ng-if="tickets.length === 0" class="im-wrapper">
+            <div class="text-center padding">
+                <i class="icon ion-sad-outline larger dark"></i>
+            </div>
+            <p> Ainda não comprou nenhum ingressos...Alem disso vai ser muito complicado para fazer trocas ! </p>
+            <p> Vai no site dos Jogos <a class="energized" href="http://www.rio2016.com.br"> rio2016.com </a>. E compra là !</p>
+        </div>
+    </ion-content>
+</ion-view>

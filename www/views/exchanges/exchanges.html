@@ -1,0 +1,26 @@
+<ion-view view-title="Minhas Trocas">
+    <ion-content>
+        <div ng-if="notifications" class="bar bar-subheader bar-positive static text-center" ng-click="closeNotifBar()">
+            <strong class="title">4 solicitações de trocas</strong>
+        </div>
+        <div  ng-repeat="exchange in tickets">
+            <ion-list ng-if="tickets" class="animate-ripple">
+                <ion-item nav-clear menu-close class="item-icon-right "  >
+
+                    <h2>Estadio Olimpico</h2>
+                    <p><strong>Username</strong>quer trocar com vôce seu ingresso <strong>Username</strong></p>
+                    <i class="icon ion-chatbubble muted">Here icon for exchangeable</i>
+                    <buttonng-click="accept(exchange);">Aceitar</button>
+                    <buttonng-click="refuse(exchange);">Declinar</button>
+                </ion-item>
+            </ion-list>
+
+        </div>
+        <div ng-if="!tickets" class="im-wrapper">
+            <div class="text-center padding">
+                <i class="icon ion-sad-outline larger dark"></i>
+            </div>
+            <p> Desculpa ! Niguem que fazer uma troca com você. </p>
+        </div>
+    </ion-content>
+</ion-view>

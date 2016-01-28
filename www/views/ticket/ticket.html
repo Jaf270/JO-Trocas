@@ -1,0 +1,40 @@
+<ion-view view-title="{{ticket.description}}">
+    <ion-content padding="false">
+    <div class="card no-margin" >
+        <div class="item item-image no-padding">
+            <img ng-src="{{sport.img_directory}}" alt="{{sport.name}}">
+            <div style="position: absolute; bottom: 0.5em; left: 0.5em; font-weight: bold; color: white; font-size:20px;">
+            {{ticket.date}}
+            </div>
+            <div style="position: absolute; bottom: 0.5em; right: 0.5em; font-weight: bold; color: white; font-size:20px;">
+            {{ticket.hour}}
+            </div>
+        </div>
+    </div>
+    <div class="im-wrapper">
+        <!-- <div class="row"> -->
+        <!-- <div class="text-left">
+             <em>{{ticket.price}} R$</em>
+        </div> -->
+        <!-- </div> -->
+        <h4>{{ticket.description}}</h4>
+        <em>{{ticket.place}}</em>
+        <div class="text-right padding-bottom">
+            Abilitar para troca
+            <label class="toggle toggle-positive">
+               <input ng-model="ticket.exchangeable"type="checkbox">
+               <div class="track">
+                 <div class="handle"></div>
+               </div>
+            </label>
+        </div>
+        <p class="padding-bottom"><strong>Informações:</strong> <i>Ainda não podemos dar mais informações para esse ingresso. Os dados (time, jogadores ) serão auticamente actualizados no mesmo tempo que os jogos</i></p>
+
+        <div class="text-center">
+            <button class="button button-positive " ng-click="trocarAgora(ticket.$id)">
+                TROCAR AGORA
+            </button>
+        </div>
+    </div>
+    </ion-content>
+</ion-view>

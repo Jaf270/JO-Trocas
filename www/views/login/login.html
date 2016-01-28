@@ -1,0 +1,49 @@
+<ion-view hide-nav-bar="true" hide-back-button="true">
+        <ion-content class="padding-top">
+        <div class="col-50 col-offset-25">
+        <!-- <div class="card"> -->
+          <div class="item item-image no-border">
+            <img src="img/logo_rio_2016.png" alt=""  >
+          </div>
+        <!-- </div> -->
+        </div>
+          <h3 class="title balanced text-center padding-bottom">
+            TROCAS INGRESSOS
+          </h3>
+
+          <!-- <form novalidate name="loginForm" ng-submit="loginForm.$valid && signIn(user)"> -->
+          <form novalidate name="loginForm" ng-submit="signIn(user)">
+          <div class="list padding-left padding-right">
+            <label class="item item-input item-floating-label padding-left padding-right" ng-class="{ 'has-error' : loginForm.txtemail.$invalid && loginForm.$submitted }">
+              <span class="input-label">Email</span>
+              <input name="txtemail" type="email" ng-model="user.email" placeholder="Email"
+              ng-minlength="5"
+              ng-maxlength="30"
+              required>
+            </label>
+            <!-- Edit this messages if you want -->
+            <div class="form-errors" ng-messages="loginForm.txtemail.$error" ng-if="loginForm.$submitted">
+              <div class="form-error" ng-message="required">Este campo é obrigatório.</div>
+              <div class="form-error" ng-message="email">Este campo deve ser um e-mail.</div>
+            </div>
+            <label class="item item-input item-floating-label padding-left padding-right" ng-class="{ 'has-error-lr' : loginForm.txtPassword.$invalid && loginForm.$submitted }">
+              <span class="input-label">Senha</span>
+              <input name="txtPassword" type="password" ng-model="user.password" placeholder="Senha"
+              ng-minlength="5"
+              ng-maxlength="30"
+              required>
+            </label>
+            <!-- Edit this messages if you want -->
+            <div class="form-errors" ng-messages="loginForm.txtPassword.$error" ng-if="loginForm.$submitted">
+            <div class="form-error" ng-message="required">Este campo é obrigatório.</div>
+            <div class="form-error" ng-message="minlength">Este campo deve ser de pelo menos 5 caracteres.</div>
+            </div>
+          </div>
+          <div class="text-center">
+            <input type="submit" class="button button-energized" value="Cadastre-se">
+            <p class="text-center padding-top">
+                <a href="#/forgot" class="button button-clear button-stable">Esqueceu senha</a><a href="#/register" class="button button-clear button-stable">Criar conta</a>
+          </div>
+        </form>
+        </ion-content>
+</ion-view>
